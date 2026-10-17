@@ -4,13 +4,16 @@ on:
   push:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-java@v4
+      - uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: 17
@@ -21,9 +24,20 @@ jobs:
         run: |
           chmod +x gradlew
           ./gradlew assembleDebug --stacktrace
+          cp app/build/outputs/apk/debug/app-debug.apk Spnvoip.apk
 
-      - name: Upload APK
+      - name: Upload APK (Actions artifact)
         uses: actions/upload-artifact@v4
         with:
           name: Spnvoip-apk
-          path: app/build/outputs/apk/debug/*.apk
+          path: Spnvoip.apk
+
+      - name: Publish APK to the "latest" release
+        if: github.ref == 'refs/heads/main'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete latest --yes --cleanup-tag || true
+          gh release create latest Spnvoip.apk \
+            --title "Spnvoip test build" \
+            --notes "Built from ${GITHUB_SHA::7}. Download Spnvoip.apk on your phone and tap it to install."
