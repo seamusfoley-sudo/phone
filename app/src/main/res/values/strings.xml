@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Spnvoip</string>
+    <string name="settings">Settings</string>
+    <string name="account">Account</string>
+    <string name="username">Username / extension</string>
+    <string name="password">Password</string>
+    <string name="server">Server (domain or domain:port)</string>
+    <string name="advanced">Advanced</string>
+    <string name="hide_advanced">Hide advanced</string>
+    <string name="transport">Transport</string>
+    <string name="keepalive_seconds">Keep-alive interval (seconds)</string>
+    <string name="keepalive_hint">Longer = less battery. TCP 120 s is usually safe; UDP needs about 30 s.</string>
+    <string name="save">Save and register</string>
+    <string name="remove_account">Remove account</string>
+    <string name="back">Back</string>
+    <string name="call">Call</string>
+    <string name="delete">Delete</string>
+    <string name="answer">Answer</string>
+    <string name="decline">Decline</string>
+    <string name="hang_up">Hang up</string>
+    <string name="mute">Mute</string>
+    <string name="keypad">Keypad</string>
+    <string name="speaker">Speaker</string>
+    <string name="incoming_call">Incoming call</string>
+    <string name="calling_short">Calling…</string>
+    <string name="calling">Calling %1$s…</string>
+    <string name="in_call_with">In call with %1$s</string>
+    <string name="call_ended">Call ended</string>
+    <string name="status_not_configured">No account</string>
+    <string name="status_connecting">Connecting…</string>
+    <string name="status_registered">Registered</string>
+    <string name="status_failed">Registration failed</string>
+    <string name="status_offline">Offline</string>
+    <string name="channel_status">Connection status</string>
+    <string name="channel_incoming">Incoming calls</string>
+</resources>
